@@ -65,7 +65,7 @@ gulp.task("html-watch",["html"],function(done){
 gulp.task("serve", function () {
   browserSync.init({
     server:{
-      baseDir:config.build
+      baseDir:config.dist
     }
   });
   gulp.watch(sources.html,['html-watch']);
