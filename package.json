@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maryleo3007/L49Gulp.git"
+    "url": "git+https://github.com/GlisseLisbeth/pinterest.git"
   },
   "author": "mllj",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/maryleo3007/L49Gulp/issues"
+    "url": "https://github.com/GlisseLisbeth/pinterest/issues"
   },
-  "homepage": "https://github.com/maryleo3007/L49Gulp#readme",
+  "homepage": "https://github.com/GlisseLisbeth/pinterest#readme",
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
