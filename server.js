@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express'); //Framework Express
 
 const app = express();

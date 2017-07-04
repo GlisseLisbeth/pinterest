@@ -3,6 +3,8 @@ var sass = require('gulp-sass');
 var browserify = require('gulp-browserify');
 var browserSync = require('browser-sync').create();
 var rename = require("gulp-rename");
+var concat = require("gulp-concat");
+var uglify = require("gulp-uglify");
 
 var config = {
   source: './src/',
@@ -13,7 +15,7 @@ var paths = {
   html: '**/*.html',
   sass: 'scss/**/*.scss',
   mainSass: 'scss/main.scss',
-  mainJs: 'js/app.js'
+  mainJs: 'js/*.js'
 };
 var sources = {
   assets:config.source + paths.assets,
@@ -37,7 +39,8 @@ gulp.task("sass",function () {
 gulp.task("js",function () {
       gulp.src(sources.rootJs)
       .pipe(browserify())
-      .pipe(rename("bundle.js"))
+      .pipe(concat("bundle.js"))
+      .pipe(uglify())
       .pipe(gulp.dest(config.dist + paths.assets +"js"));
 });
 
@@ -60,6 +63,6 @@ gulp.task("serve", function () {
     }
   });
   gulp.watch(sources.html,['html-watch']);
-  gulp.watch(sources.sass,['sass-watch']);
-  gulp.watch(sources.js,['js-watch']);
+  gulp.watch("./src/assets/scss/main.scss",['sass-watch']);
+  gulp.watch("./src/assets/js/*.js",['js-watch']);
 });
