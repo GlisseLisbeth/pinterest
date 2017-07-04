@@ -1,0 +1,17 @@
+{
+  "name": "pinterest app | web-ui",
+  "description": "aplicación de pinterest",
+  "main": "gulpfile.js",
+  "authors": [
+    "mllj"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/GlisseLisbeth/pinterest",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
