@@ -26,6 +26,8 @@
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
-    "express": "^4.15.3"
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1"
   }
 }
