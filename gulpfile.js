@@ -15,14 +15,16 @@ var paths = {
   html: '**/*.html',
   sass: 'scss/**/*.scss',
   mainSass: 'scss/main.scss',
-  mainJs: 'js/*.js'
+  mainJs: 'js/*.js',
+  img: 'img/*.*'
 };
 var sources = {
   assets:config.source + paths.assets,
   html:config.source + paths.html,
   sass:paths.assets + paths.sass,
   rootSass:config.source + paths.assets + paths.mainSass,
-  rootJs: config.source + paths.assets + paths.mainJs
+  rootJs: config.source + paths.assets + paths.mainJs,
+  rootImg: config.source + paths.assets + paths.img
 };
 gulp.task('html',()=>{
   gulp.src(sources.html).pipe(gulp.dest(config.dist));
@@ -42,6 +44,10 @@ gulp.task("js",function () {
       .pipe(concat("bundle.js"))
       .pipe(uglify())
       .pipe(gulp.dest(config.dist + paths.assets +"js"));
+});
+
+gulp.task("img", function(){
+  gulp.src(sources.rootImg).pipe(gulp.dest(config.dist + paths.assets + 'img'));
 });
 
 gulp.task("sass-watch",["sass"],function(done){
