@@ -5,6 +5,7 @@ var browserSync = require('browser-sync').create();
 var rename = require("gulp-rename");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
+var babel = require('gulp-babel');
 
 var config = {
   source: './src/',
@@ -44,6 +45,11 @@ gulp.task("js",function () {
       .pipe(concat("bundle.js"))
       .pipe(uglify())
       .pipe(gulp.dest(config.dist + paths.assets +"js"));
+});
+gulp.task('js', function () {
+        gulp.src(sources.rootJs)
+        .pipe(babel())
+        .pipe(gulp.dest(config.dist + paths.assets +"js"));
 });
 
 gulp.task("img", function(){
