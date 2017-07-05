@@ -8,18 +8,19 @@
 
 //header
 .header {
-  height: $height-header;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   .header__nav{
     display: flex;
+    justify-content: space-between;
   }
     & .header__nav--btn{
       height: $height-nav-btn;
       color: $icon-color;
       border: none;
+      font-size: 12px;
     }
     & .form-control{
       background-color: $secundary-color;
@@ -28,5 +29,9 @@
     }
     & .form-control::placeholder {
       color: black;
+    }
+    & .form-control:focus {
+      border-color: white;
+      box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px white;
     }
 }
