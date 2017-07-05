@@ -10,10 +10,6 @@ var babel = require('gulp-babel');
 var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
 var jquery = require('gulp-jquery');
-<<<<<<< HEAD
-
-=======
->>>>>>> 50be5a6eed644051eeb829436a029bf6394128a8
 
 var config = {
   source: './src/',
