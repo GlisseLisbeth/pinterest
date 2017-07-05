@@ -20,6 +20,6 @@ $(_ => {
     console.log(json);
     console.log(state.pins);
     const root = $('#root');
-    render(root);
+  render(root);
   });
 });
