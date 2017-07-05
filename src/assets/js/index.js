@@ -5,6 +5,7 @@ const render = (root) => {
   const wrapper = $('<div class="wrapper"></div>');
   const list = state.pins;
   list.forEach((elemento)=>{
+    
     const img = $('<img class="pokeimg center" src="'+elemento.image.original.url+'">');
     wrapper.append(img);
   });
