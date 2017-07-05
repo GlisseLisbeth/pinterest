@@ -6,6 +6,7 @@ const BoardItem = (pinterest,update) => {
   const divcontentPin = $('<div class="contentPin"></div>');
   const figure = $('<div class="figPin"></div>');
   const a = $('<a data-toggle="modal" data-target="#myModal"></a>');
+
   const img = $('<img class="pinimg center" src="'+elemento.image.original.url+'">');
 
   figure.append(a);
@@ -17,6 +18,7 @@ const BoardItem = (pinterest,update) => {
 
   colcontainer.append(divcontentPin);
   divcontentPin.append(figure);
+
   colcontainer.append(divnmbre);
   divnmbre.append(PinDetails());
 
@@ -29,6 +31,7 @@ const BoardItem = (pinterest,update) => {
   //    })
   // });
 
+
 return colcontainer;
 }
 
@@ -36,7 +39,6 @@ const BoardGrid = (update) => {
 
   const section = $('<section id ="sectionPin"></section>');
   const container  = $('<div class="container"></div>');
-
   const rowgrid = $('<div class="row"></div>');
   const board = $('<div class="board"></div>');
 

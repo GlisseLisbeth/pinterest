@@ -43,6 +43,7 @@ col3.append(caracteristicas);
 const col6 = $('<div class="col-md-6"></div>');
 const col7 = $('<div class="col-md-6"></div>');
 
+
 caracteristicas.append(col7);
 
 modalBody.append(containermodal);

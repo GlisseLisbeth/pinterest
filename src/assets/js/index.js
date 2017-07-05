@@ -4,7 +4,9 @@ const render = (root) => {
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
   const list = state.pins;
+
   wrapper.append(BoardGrid(_=>{render(root)});
+
   root.append(wrapper);
 }
 const state = {
