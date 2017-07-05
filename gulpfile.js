@@ -21,7 +21,8 @@ var paths = {
   sass: 'scss/**/*.scss',
   mainSass: 'scss/*.scss',
   mainJs: 'js/*.js',
-  img: 'img/*.*'
+  img: 'img/*.*',
+  font: 'font/*.*'
 };
 var sources = {
   assets:config.source + paths.assets,
@@ -29,7 +30,8 @@ var sources = {
   sass:paths.assets + paths.sass,
   rootSass:config.source + paths.assets + paths.mainSass,
   rootJs: config.source + paths.assets + paths.mainJs,
-  rootImg: config.source + paths.assets + paths.img
+  rootImg: config.source + paths.assets + paths.img,
+  rootFont: config.source + paths.assets + paths.font
 };
 gulp.task('html',()=>{
   gulp.src(sources.html).pipe(gulp.dest(config.dist));
@@ -53,7 +55,7 @@ gulp.task("js",function () {
       var js = gulp.src(sources.rootJs)
       .pipe(browserify())
       .pipe(concat("bundle.js"))
-      .pipe(uglify())
+      // .pipe(uglify())
       .pipe(gulp.dest(config.dist + paths.assets +"js"));
 
       var jquery = gulp.src('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js')
@@ -63,6 +65,10 @@ gulp.task("js",function () {
 
 gulp.task("img", function(){
   gulp.src(sources.rootImg).pipe(gulp.dest(config.dist + paths.assets + 'img'));
+});
+
+gulp.task("font", function(){
+  gulp.src(sources.rootFont).pipe(gulp.dest(config.dist + paths.assets + 'font'));
 });
 
 // gulp.task('jquery', function(){

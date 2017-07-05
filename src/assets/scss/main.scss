@@ -1,1 +1,32 @@
 @import "bootstrap";
+@import "components/variables";
+@import "components/fontello";
+
+.bg-white{
+  background-color: white;
+}
+
+//header
+.header {
+  height: $height-header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .header__nav{
+    display: flex;
+  }
+    & .header__nav--btn{
+      height: $height-nav-btn;
+      color: $icon-color;
+      border: none;
+    }
+    & .form-control{
+      background-color: $secundary-color;
+      padding-left: 3.5rem;
+      font-size: 2rem;
+    }
+    & .form-control::placeholder {
+      color: black;
+    }
+}

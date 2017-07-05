@@ -4,11 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <link rel="stylesheet" href="public/bootstrap/dist/css/bootstrap.min.css" type="text/css" /> -->
   <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
   <title>Pinterest app | Web UI</title>
 </head>
 <body>
+  <header class="navbar navbar-default navbar-fixed-top header bg-white">
+    <nav class="container-fluid col-xs-12 header__nav">
+        <a class="btn btn-default col-xs-offset-1 col-xs-2 col-sm-1 header__nav--btn" href="#"><i class="icon-pinterest"></i><p class="hidden-xs">Inicio</p></a>
+        <button type="button" class="btn btn-default col-xs-2 col-sm-1 visible-xs header__nav--btn" id="search"><i class="icon-search"></i><p class="hidden-xs">Buscar</p></button>
+        <div class="form-group col-xs-2 col-sm-6 hidden-xs">
+          <i class="icon-search"></i>
+          <input type="text" class="form-control header__nav--btn" placeholder="Buscar">
+        </div>
+        <a class="btn btn-default col-xs-2 col-sm-1 header__nav--btn"><i class="icon-user"></i><p class="hidden-xs">usuario</p></a>
+        <a class="btn btn-default col-xs-2 col-sm-1 header__nav--btn"><i class="icon-menu"></i><p class="hidden-xs">Categorías</p></a>
+        <a class="btn btn-default col-xs-2 col-sm-1 header__nav--btn"><i class="icon-comment"></i><p class="hidden-xs">Notificaciones</p></a>
+    </nav>
+    <div class="form-group col-xs-10 hidden" id="search-inp">
+      <i class="icon-search"></i>
+      <input type="text" class="form-control header__nav--btn" placeholder="Buscar">
+    </div>
+  </header>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="assets/vendor/bootstrap.min.js"></script>
   <script src="assets/js/bundle.js"></script>
