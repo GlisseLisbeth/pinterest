@@ -8,6 +8,6 @@ app.get('/', (req, res) => {
    res.sendFile(__dirname+'/public/index.html');
 }).listen(port);
 
-app.use('/static', express.static(path.join(__dirname,'node_modules')));
-app.use('/static', express.static(path.join(__dirname,'/public/assets')));
+app.use('/static', express.static(path.join(__dirname,'/node_modules')));
+app.use('/static', express.static(path.join(__dirname + '/public','/assets')));
 console.log('Express server started on port %s', port);
