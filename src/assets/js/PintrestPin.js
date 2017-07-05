@@ -1,8 +1,8 @@
-const PokedexDetails = () => {
+const PinDetails = () => {
 
 const modalfade = $('<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  </div>');
 const modalDialog = $('<div class="modal-dialog" role="document"></div>');
-const modalDescription = $('<div class="modal-pokedescription"></div>')
+const modalDescription = $('<div class="modal-pindescription"></div>')
 const modalContent = $('<div class="modal-content"></div>');
 const modalHeader = $('<div class="modal-header"></div>');
 const modalBody = $('<div class="modal-body"></div>');
@@ -23,17 +23,17 @@ const row1 = $('<div class="row"></div>');
 containermodal.append(row1);
 const col1 = $('<div class="col-md-5 col-sm-5"></div>');
 row1.append(col1);
-const pokecolContainer = $('<div class="pokecolContainer"></div>');
-col1.append(pokecolContainer);
+const pincolContainer = $('<div class="pincolContainer"></div>');
+col1.append(pincolContainer);
 const col2 = $('<div class="col-md-7 col-sm-7"></div>');
 row1.append(col2);
-const pokecolDescription = $('<div class=" row pokecolDescription"></div>');
-col2.append(pokecolDescription);
+const pincolDescription = $('<div class=" row pincolDescription"></div>');
+col2.append(pincolDescription);
 
 const col3 = $('<div class="col-md-12"></div>');
 const col4 = $('<div class="col-md-12"></div>');
 const col5 = $('<div class="col-md-12"></div>');
-pokecolDescription.append(col3);
+pincolDescription.append(col3);
 
 const pdescription = $('<p class="descripcion"></p>');
 const caracteristicas = $('<div class="caracteristicas"></div>');
