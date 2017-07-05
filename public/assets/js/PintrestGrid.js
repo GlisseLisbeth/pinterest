@@ -1,13 +1,13 @@
 'use strict';
 
-const BoardItem = (pinterest,update) => {
+const BoardItem = (pinterest, update) => {
 
   const colcontainer = $('<div class="col-md-3"></div>');
   const divcontentPin = $('<div class="contentPin"></div>');
   const figure = $('<div class="figPin"></div>');
   const a = $('<a data-toggle="modal" data-target="#myModal"></a>');
 
-  const img = $('<img class="pinimg center" src="'+pinterest.image.original.url+'">');
+  const img = $('<img class="pinimg center" src="' + pinterest.image.original.url + '">');
 
   figure.append(a);
   a.append(img);
@@ -22,7 +22,9 @@ const BoardItem = (pinterest,update) => {
   colcontainer.append(divnmbre);
   divnmbre.append(PinDetails());
 
-  let doublePin = colcontainer.map((x)=>{ return x});
+  let doublePin = colcontainer.map(x => {
+    return x;
+  });
   // a.on('click',function () {
   //
   //   $.get(,(data) => {
@@ -32,13 +34,13 @@ const BoardItem = (pinterest,update) => {
   // });
 
 
-return colcontainer;
-}
+  return colcontainer;
+};
 
-const BoardGrid = (update) => {
+const BoardGrid = update => {
 
   const section = $('<section id ="sectionPin"></section>');
-  const container  = $('<div class="container"></div>');
+  const container = $('<div class="container"></div>');
   const rowgrid = $('<div class="row"></div>');
   const board = $('<div class="board"></div>');
 
@@ -47,9 +49,9 @@ const BoardGrid = (update) => {
   rowgrid.append(board);
   // reRender(rowgrid,filterpinterest(state.pinterests,""));
   const list = state.pins;
-  list.forEach((pin) => {
+  list.forEach(pin => {
     board.append(BoardItem(pin));
   });
 
   return section;
-}
+};
