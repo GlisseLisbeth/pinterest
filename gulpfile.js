@@ -71,14 +71,6 @@ gulp.task("font", function(){
   gulp.src(sources.rootFont).pipe(gulp.dest(config.dist + paths.assets + 'font'));
 });
 
-// gulp.task('jquery', function(){
-//   gulp.src('node_modules/jquery/src')
-//       .pipe(jquery({
-//         // flags: ['-deprecated', '-event/alias', '-ajax/script', '-ajax/jsonp', '-exports/global']
-//       }))
-//       .pipe(gulp.dest(config.dist + paths.assets + "vendor"));
-// });
-
 gulp.task("sass-watch",["sass"],function(done){
   browserSync.reload();
   done();
