@@ -1,4 +1,4 @@
-const PinDetails = (id) => {
+const PinDetails = (id,update) => {
   const modalfade = $('<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  </div>');
   const modalDialog = $('<div class="modal-dialog" role="document"></div>');
   const modalDescription = $('<div class="modal-pindescription"></div>')
@@ -23,11 +23,11 @@ const PinDetails = (id) => {
   const col1 = $('<div class="col-md-5 col-sm-5"></div>');
   row1.append(col1);
   const pincolContainer = $('<div class="pincolContainer"></div>');
-  const img = $('<img id="pinImage" class="" src="'+id+'">');
+  const img = $('<img id="img-responsive pinImage" class="" src="'+id+'">');
 
   col1.append(pincolContainer);
   pincolContainer.append(img);
   modalBody.append(containermodal);
-
+  update();
   return modalfade;
 }

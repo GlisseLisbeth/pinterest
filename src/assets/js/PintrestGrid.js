@@ -21,10 +21,11 @@ const BoardItem = (pinterest,ide,update) => {
 
   colcontainer.append(divnmbre);
 
+
   a.on('click',function () {
     $.get("https://api.pinterest.com/v1/pins/"+ide+"/?access_token=ATLVkpU1AzU-WC0DWQStYpu4HiB_FM6Kk0cL9EhEItzOC6A2WgAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cboard%2Ccolor%2Ccounts%2Ccreated_at%2Ccreator%2Cimage%2Coriginal_link",(data)=>{
       state.pin = data.data.image.original.url;
-      divnmbre.append(PinDetails(state.pin));
+      divnmbre.append(PinDetails(state.pin,update));
     });
   });
 
@@ -46,7 +47,7 @@ const BoardGrid = (update) => {
   list.forEach((pin) => {
     console.log(pin.id);
     let ide = pin.id;
-    board.append(BoardItem(pin,ide));
+    board.append(BoardItem(pin,ide,update));
   });
 
   return section;
