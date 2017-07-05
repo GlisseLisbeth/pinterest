@@ -13,7 +13,8 @@ const render = root => {
   root.append(wrapper);
 };
 const state = {
-  pins: null,
+  board: null,
+  pin: null,
   id: null
 };
 
@@ -22,9 +23,7 @@ $(_ => {
     if (err) {
       return alert(err.message);
     }
-    state.pins = json.data;
-    console.log(json);
-    console.log(state.pins);
+    state.board = json.data;
     const root = $('#root');
     render(root);
   });

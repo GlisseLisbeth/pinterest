@@ -1,5 +1,4 @@
-const PinDetails = () => {
-
+const PinDetails = id => {
   const modalfade = $('<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  </div>');
   const modalDialog = $('<div class="modal-dialog" role="document"></div>');
   const modalDescription = $('<div class="modal-pindescription"></div>');
@@ -24,27 +23,10 @@ const PinDetails = () => {
   const col1 = $('<div class="col-md-5 col-sm-5"></div>');
   row1.append(col1);
   const pincolContainer = $('<div class="pincolContainer"></div>');
+  const img = $('<img id="pinImage" class="" src="' + id + '">');
+
   col1.append(pincolContainer);
-  const col2 = $('<div class="col-md-7 col-sm-7"></div>');
-  row1.append(col2);
-  const pincolDescription = $('<div class=" row pincolDescription"></div>');
-  col2.append(pincolDescription);
-
-  const col3 = $('<div class="col-md-12"></div>');
-  const col4 = $('<div class="col-md-12"></div>');
-  const col5 = $('<div class="col-md-12"></div>');
-  pincolDescription.append(col3);
-
-  const pdescription = $('<p class="descripcion"></p>');
-  const caracteristicas = $('<div class="caracteristicas"></div>');
-  col3.append(pdescription);
-  col3.append(caracteristicas);
-
-  const col6 = $('<div class="col-md-6"></div>');
-  const col7 = $('<div class="col-md-6"></div>');
-
-  caracteristicas.append(col7);
-
+  pincolContainer.append(img);
   modalBody.append(containermodal);
 
   return modalfade;

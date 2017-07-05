@@ -1,6 +1,6 @@
 'use strict';
 
-const BoardItem = (pinterest,update) => {
+const BoardItem = (pinterest,ide,update) => {
 
   const colcontainer = $('<div class="col-md-3"></div>');
   const divcontentPin = $('<div class="contentPin"></div>');
@@ -20,17 +20,13 @@ const BoardItem = (pinterest,update) => {
   divcontentPin.append(figure);
 
   colcontainer.append(divnmbre);
-  divnmbre.append(PinDetails());
 
-  let doublePin = colcontainer.map((x)=>{ return x});
-  // a.on('click',function () {
-  //
-  //   $.get(,(data) => {
-  //
-  //
-  //    })
-  // });
-
+  a.on('click',function () {
+    $.get("https://api.pinterest.com/v1/pins/"+ide+"/?access_token=ATLVkpU1AzU-WC0DWQStYpu4HiB_FM6Kk0cL9EhEItzOC6A2WgAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cboard%2Ccolor%2Ccounts%2Ccreated_at%2Ccreator%2Cimage%2Coriginal_link",(data)=>{
+      state.pin = data.data.image.original.url;
+      divnmbre.append(PinDetails(state.pin));
+    });
+  });
 
 return colcontainer;
 }
@@ -46,9 +42,11 @@ const BoardGrid = (update) => {
   container.append(rowgrid);
   rowgrid.append(board);
   // reRender(rowgrid,filterpinterest(state.pinterests,""));
-  const list = state.pins;
+  const list = state.board;
   list.forEach((pin) => {
-    board.append(BoardItem(pin));
+    console.log(pin.id);
+    let ide = pin.id;
+    board.append(BoardItem(pin,ide));
   });
 
   return section;
