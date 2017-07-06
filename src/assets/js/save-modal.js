@@ -9,7 +9,7 @@ const createSaveModal = (update)=>{
   const modalContainer = $('<div class="modal fade" id="saveModal" role="dialog"></div>');
   const modalDialog = $('<div class="modal-dialog"></div>');
   const modalContent = $('<div class="modal-content"></div>');
-  const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
+  // const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
   const imgContainer = $('<div class="media"></div>');
   const pinImg = $('<img alt="" src="" class="img-responsive"> ');
   const editContainer = $('<div></div>')

@@ -1,6 +1,6 @@
 'use strict';
 
-const btnNav = (textBtn, aditionalclass, iconClass)=>{
+var btnNav = (textBtn, aditionalclass, iconClass)=>{
   const aBtn = $('<a class="btn btn-default  header__nav--btn '+aditionalclass+'" href="#">');
   const icon = $('<i class="'+iconClass+'">');
   const text = $('<p class="hidden-xs">'+textBtn+'</p>');

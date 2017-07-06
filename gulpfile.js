@@ -1,15 +1,19 @@
 var gulp = require('gulp');
-var merge = require('merge-stream');
+var notify = require('gulp-notify');
 var sass = require('gulp-sass');
 var browserify = require('gulp-browserify');
 var browserSync = require('browser-sync').create();
-var rename = require("gulp-rename");
+// var rename = require("gulp-rename");
+// var sourcemaps = require('gulp-sourcemaps');
 var concat = require("gulp-concat");
+var merge = require('merge-stream');
 var uglify = require("gulp-uglify");
-// var babel = require('gulp-babel');
+var pump = require("pump"); // solucionar error de uglify
+var util = require("gulp-util");
+var babel = require('gulp-babel');
 var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
-var jquery = require('gulp-jquery');
+// var jquery = require('gulp-jquery');
 
 var config = {
   source: './src/',
@@ -21,7 +25,7 @@ var paths = {
   html: '**/*.html',
   sass: 'scss/**/*.scss',
   mainSass: 'scss/*.scss',
-  mainJs: 'js/*.js',
+  mainJs: 'js/',
   img: 'img/*.*',
   font: 'font/*.*'
 };
@@ -52,21 +56,32 @@ gulp.task("sass",function () {
       .pipe(gulp.dest(config.dist + paths.assets +"css"));
 });
 
-gulp.task("js",function () {
-      var js = gulp.src(sources.rootJs)
-      .pipe(browserify())
-      .pipe(concat("bundle.js"))
-      // .pipe(uglify())
-      .pipe(gulp.dest(config.dist + paths.assets +"js"));
 
-      var jquery = gulp.src('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js')
+gulp.task("js",function () {
+  var js = gulp.src([sources.rootJs+'get-json.js',
+                    sources.rootJs+'nav-header.js',
+                    sources.rootJs+'pintrestGrid.js',
+                    sources.rootJs+'pintrestPin.js',
+                    sources.rootJs+'save-modal.js',
+                    sources.rootJs+'index.js'])
+      .pipe(browserify())
+      // .pipe(sourcemaps.init())
+      .pipe(babel({presets: ['es2015']}))
+      .pipe(concat("bundle.js"))
+      // .pipe(sourcemaps.write())
+      .pipe(uglify())
+      .on('error', function (err) { util.log(util.colors.red('[Error]'), err.toString()); })
+      .pipe(gulp.dest(config.dist + paths.assets +"js"))
+      .pipe(notify('gulp js terminada'));
+  var jquery = gulp.src('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js')
                         .pipe(gulp.dest(config.dist + paths.assets + 'vendor'));
       return merge(js, jquery);
 });
-// gulp.task('js', function () {
-//         gulp.src(sources.rootJs)
-//         // .pipe(babel())
-//         .pipe(gulp.dest(config.dist + paths.assets +"js"));
+
+// gulp.task('compress-js', (cb)=>{
+//   pump([gulp.src(sources.rootJs),
+//         uglify(),
+//         gulp.dest(config.dist + paths.assets + "js"), cb]);
 // });
 
 gulp.task("img", function(){
@@ -76,6 +91,15 @@ gulp.task("img", function(){
 gulp.task("font", function(){
   gulp.src(sources.rootFont).pipe(gulp.dest(config.dist + paths.assets + 'font'));
 });
+
+// gulp.task('jquery', ()=>{
+//   gulp.src('node_modules/jquery-custom/jquery.2/src')
+//   .pipe(jquery({
+//             flags: ['-deprecated', '-event/alias', '-ajax/script', '-ajax/jsonp', '-exports/global']
+//         }))
+//   .on('error', function (err) { util.log(util.colors.red('[Error]'), err.toString()); })
+//   .pipe(gulp.dest(config.dist + paths.assets + 'vendor'));
+// });
 
 gulp.task("sass-watch",["sass"],function(done){
   browserSync.reload();
