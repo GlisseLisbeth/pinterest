@@ -29,5 +29,11 @@ const PinDetails = (update) => {
   pincolContainer.append(img);
   modalBody.append(containermodal);
 
+  buttonclose.click((e)=>{
+    e.preventDefault();
+    state.pin= null;
+    $('#pinImage').attr('src',"");
+  });
+
   return modalfade;
 }
