@@ -7,11 +7,11 @@ const suggestedName = (name)=>{
 
 const createSaveModal = (update)=>{
   const modalContainer = $('<div class="modal fade" id="saveModal" role="dialog"></div>');
-
   const modalDialog = $('<div class="modal-dialog"></div>');
-
   const modalContent = $('<div class="modal-content"></div>');
   const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
+  const pinImg = $('<img alt="" class="img-responsive">');
+  modalContentImg.append(pinImg);
   const modalContentDescription = $('<div class="modal-content__description col-xs-6"></div>');
   const modalHeader = $('<div class="modal-header"></div>');
   const btnClose = $('<button type="button" class="close" data-dismiss="modal">&times;</button>');
@@ -31,14 +31,15 @@ const createSaveModal = (update)=>{
   modalContentDescription.append(modalHeader, modalBody, modalFooter);
   modalContent.append(modalContentImg, modalContentDescription);
   modalContainer.append(modalDialog.append(modalContent));
-  return modalContainer;
-}
 
-
-$('#btn-save').on('click', ()=>{
-  $.get("https://api.pinterest.com/v1/pins/523473156678884261/?access_token=ATLVkpU1AzU-WC0DWQStYpu4HiB_FM6Kk0cL9EhEItzOC6A2WgAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cboard%2Ccolor%2Ccounts%2Ccreated_at%2Ccreator%2Cimage%2Coriginal_link",(data)=>{
+  $('#btn-save').on('click', ()=>{
+    $.get("https://api.pinterest.com/v1/pins/523473156678884261/?access_token=ATLVkpU1AzU-WC0DWQStYpu4HiB_FM6Kk0cL9EhEItzOC6A2WgAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cboard%2Ccolor%2Ccounts%2Ccreated_at%2Ccreator%2Cimage%2Coriginal_link",(data)=>{
       console.log(data);
       state.pin = data.data.image.original.url;
       console.log(state.pin);
+      pinImg.attr('src', state.pin);
     });
-})
+  })
+
+  return modalContainer;
+}
