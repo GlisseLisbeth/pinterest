@@ -22,7 +22,7 @@ const BoardItem = (pinterest, update) => {
   a.append(img);
   gridItem.append(btnSave);
   gridItem.append(btnShare);
-  gridItem.append(divImgDin);
+  // gridItem.append(divImgDin);
   gridItem.append(user);
   gridItem.append(name);
   user.append(imgUser);
