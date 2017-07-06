@@ -13,9 +13,11 @@ const PinDetails = (update) => {
 
   const buttonclose = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
   const h4modalTitle = $('<h4 class="modal-title" id="myModalLabel"></h4>');
+  const buttonSave = $('<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#saveModal" id="btn-save">Open Modal</button>');
 
   modalHeader.append(buttonclose);
   modalHeader.append(h4modalTitle);
+  modalHeader.append(buttonSave);
 
   const containermodal = $('<div class="container container-modal"></div>');
   const row1 = $('<div class="row"></div>');
