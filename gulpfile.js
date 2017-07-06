@@ -61,11 +61,11 @@ gulp.task("js",function () {
                         .pipe(gulp.dest(config.dist + paths.assets + 'vendor'));
       return merge(js, jquery);
 });
-gulp.task('js', function () {
-        gulp.src(sources.rootJs)
-        .pipe(babel())
-        .pipe(gulp.dest(config.dist + paths.assets +"js"));
-});
+// gulp.task('js', function () {
+//         gulp.src(sources.rootJs)
+//         .pipe(babel())
+//         .pipe(gulp.dest(config.dist + paths.assets +"js"));
+// });
 
 gulp.task("img", function(){
   gulp.src(sources.rootImg).pipe(gulp.dest(config.dist + paths.assets + 'img'));
