@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const getJSON = (url, cb) => { //url es la direccion de archivo json
 

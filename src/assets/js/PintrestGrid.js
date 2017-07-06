@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const BoardItem = (pinterest, ide, update) => {
   const gridItem = $('<div class="grid__item"></div>');

@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const suggestedName = (name)=>{
   const sugName = $('<a href="#" class="list-group-item"><i class="icon-plus"></i>'+name+'</a>');

@@ -29,8 +29,6 @@
 .header {
   @include flex(column, center, center);
   .header__nav{
-    // display: flex;
-    // justify-content: space-between;
     @include flex('', space-between);
   }
     & .header__nav--btn{
@@ -61,9 +59,6 @@
   & .modal-content{
     display: flex;
     & .modal-content__img{
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: center;
       @include flex(column, center);
       & div{
         max-height: 39rem;
@@ -81,10 +76,7 @@
   }
 }
 //grilla
-// *{
-// 	margin:0;
-// 	padding: 0;
-// }
+
 #grid {
 	position: relative;
 	overflow: hidden;

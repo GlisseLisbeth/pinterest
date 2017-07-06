@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 var btnNav = (textBtn, aditionalclass, iconClass)=>{
   const aBtn = $('<a class="btn btn-default  header__nav--btn '+aditionalclass+'" href="#">');
