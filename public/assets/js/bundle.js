@@ -94,7 +94,7 @@ return gridItem;
 
 const BoardGrid = (update) => {
 
-  const grid = $('<section class="grid"></div>');
+  const grid = $('<section class="grid" id="grid"></div>');
   // reRender(rowgrid,filterpinterest(state.pinterests,""));
   const list = state.board;
   list.forEach((pin) => {

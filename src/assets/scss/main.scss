@@ -79,13 +79,13 @@
       }
     }
   }
-
+}
 //grilla
 // *{
 // 	margin:0;
 // 	padding: 0;
 // }
-.grid {
+#grid {
 	position: relative;
 	overflow: hidden;
 	max-width: 1300px;
@@ -236,5 +236,4 @@
 	.grid__item--size-a {
 		width: 100%;
 	}
-}
 }
