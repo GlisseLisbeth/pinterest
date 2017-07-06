@@ -54,7 +54,7 @@ gulp.task("sass",function () {
 gulp.task("js",function () {
       var js = gulp.src(sources.rootJs)
       .pipe(browserify())
-      .pipe(concat("bundle.js" , {newLine: ';'}))
+      .pipe(concat("bundle.js"))
       // .pipe(uglify())
       .pipe(gulp.dest(config.dist + paths.assets +"js"));
 

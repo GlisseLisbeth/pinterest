@@ -9,7 +9,7 @@ const render = (root) => {
   root.append(wrapper);
 }
 const state = {
-    pins: null,
+    pin: null,
     id:null
 }
 
