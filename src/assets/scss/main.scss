@@ -1,1 +1,56 @@
 @import "bootstrap";
+@import "components/variables";
+@import "components/fontello";
+
+.bg-white{
+  background-color: white;
+}
+
+//header
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .header__nav{
+    display: flex;
+    justify-content: space-between;
+  }
+    & .header__nav--btn{
+      height: $height-nav-btn;
+      color: $icon-color;
+      border: none;
+      font-size: 12px;
+    }
+    & .form-control{
+      background-color: $secundary-color;
+      padding-left: 3.5rem;
+      font-size: 2rem;
+    }
+    & .form-control::placeholder {
+      color: black;
+    }
+    & .form-control:focus {
+      border-color: white;
+      box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px white;
+    }
+}
+
+
+//save modal
+.modal-content{
+  display: flex;
+  & .modal-content__img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & div{
+      max-height: 39rem;
+    }
+  }
+  & .modal-content__description{
+    & a{
+      border: none;
+    }
+  }
+}

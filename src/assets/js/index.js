@@ -1,11 +1,11 @@
-
 'use strict';
 const render = (root) => {
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
-  const list = state.pins;
 
+  wrapper.append(header(_=>{render(root)}));
   wrapper.append(BoardGrid(_=>{render(root)}));
+  wrapper.append(createSaveModal(_=>{render(root)}));
 
   root.append(wrapper);
 }
