@@ -1,7 +1,7 @@
 'use strict';
 
 const BoardItem = (pinterest,ide,update) => {
-
+  console.log(state.pin);
   const colcontainer = $('<div class="col-md-3"></div>');
   const divcontentPin = $('<div class="contentPin"></div>');
   const figure = $('<div class="figPin"></div>');
@@ -29,6 +29,7 @@ const BoardItem = (pinterest,ide,update) => {
     });
   });
 
+  state.pin = ide;
 return colcontainer;
 }
 

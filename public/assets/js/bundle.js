@@ -55,7 +55,7 @@ const header = (update)=>{
 'use strict';
 
 const BoardItem = (pinterest,ide,update) => {
-
+  console.log(state.pin);
   const colcontainer = $('<div class="col-md-3"></div>');
   const divcontentPin = $('<div class="contentPin"></div>');
   const figure = $('<div class="figPin"></div>');
@@ -83,6 +83,7 @@ const BoardItem = (pinterest,ide,update) => {
     });
   });
 
+  state.pin = ide;
 return colcontainer;
 }
 
@@ -144,7 +145,7 @@ const PinDetails = (update) => {
       console.log(data);
       state.pin = data.data.image.original.url;
       console.log(state.pin);
-      pinImg.attr('src', state.pin);
+      // pinImg.attr('src', state.pin);
     });
   })
 
@@ -165,12 +166,13 @@ const suggestedName = (name)=>{
 }
 
 const createSaveModal = (update)=>{
+  console.log(state.pin);
   const modalContainer = $('<div class="modal fade" id="saveModal" role="dialog"></div>');
   const modalDialog = $('<div class="modal-dialog"></div>');
   const modalContent = $('<div class="modal-content"></div>');
   const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
   const imgContainer = $('<div class="media"></div>');
-  const pinImg = $('<img alt="" class="img-responsive"> ');
+  const pinImg = $('<img alt="" src='+state.pin+'class="img-responsive"> ');
   const editContainer = $('<div></div>')
   const editName = $('<input type="text" class="form-control" id="board-name" readonly>');
   modalContentImg.append(imgContainer.append(pinImg), editContainer.append(editName));
@@ -211,8 +213,6 @@ const createSaveModal = (update)=>{
     }
 
   });
-
-
 
   return modalContainer;
 }

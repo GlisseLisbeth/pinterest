@@ -35,7 +35,7 @@ const PinDetails = (update) => {
       console.log(data);
       state.pin = data.data.image.original.url;
       console.log(state.pin);
-      pinImg.attr('src', state.pin);
+      // pinImg.attr('src', state.pin);
     });
   })
 
