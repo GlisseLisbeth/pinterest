@@ -54,6 +54,7 @@ gulp.task("sass",function () {
       }))
       .pipe(cleanCSS())
       .pipe(gulp.dest(config.dist + paths.assets +"css"));
+      .pipe(notify('gulp sass terminada'));
 });
 
 
@@ -66,10 +67,10 @@ gulp.task("js",function () {
                     sources.rootJs+'index.js'])
       .pipe(browserify())
       // .pipe(sourcemaps.init())
-      .pipe(babel({presets: ['es2015']}))
+      // .pipe(babel({presets: ['es2015']}))
       .pipe(concat("bundle.js"))
       // .pipe(sourcemaps.write())
-      .pipe(uglify())
+      // .pipe(uglify())
       .on('error', function (err) { util.log(util.colors.red('[Error]'), err.toString()); })
       .pipe(gulp.dest(config.dist + paths.assets +"js"))
       .pipe(notify('gulp js terminada'));

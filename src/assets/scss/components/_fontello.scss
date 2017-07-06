@@ -60,11 +60,11 @@
 
 .icon-search:before { content: '\e801'; position: absolute; top: 1rem; font-size: 160%;} /* '' */
 .icon-user:before { content: '\e80f'; } /* '' */
-.icon-plus:before { content: '\e812'; } /* '' */
+.icon-plus:before { content: '\e812'; color: $gray-light;} /* '' */
 .icon-menu:before { content: '\e814'; } /* '' */
 .icon-pinterest:before { content: '\e815'; color: $primary-color;} /* '' */
 .icon-help:before { content: '\e816'; } /* '' */
-.icon-pin:before { content: '\e817'; } /* '' */
+.icon-pin:before { content: '\e817'; font-size: 120%; color: white} /* '' */
 .icon-cancel:before { content: '\e818'; } /* '' */
 .icon-upload:before { content: '\f02f'; } /* '' */
 .icon-comment:before { content: '\f27a'; } /* '' */

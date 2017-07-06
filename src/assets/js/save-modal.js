@@ -9,11 +9,11 @@ const createSaveModal = (update)=>{
   const modalContainer = $('<div class="modal fade" id="saveModal" role="dialog"></div>');
   const modalDialog = $('<div class="modal-dialog"></div>');
   const modalContent = $('<div class="modal-content"></div>');
-  // const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
+  const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
   const imgContainer = $('<div class="media"></div>');
-  const pinImg = $('<img alt="" src="" class="img-responsive"> ');
+  const pinImg = $('<img alt="" class="img-responsive"> ');
   const editContainer = $('<div></div>')
-  const editName = $('<input type="text" class="form-control" id="board-name" placeholder="Dale un nombre a tu primer tablero">');
+  const editName = $('<input type="text" class="form-control" id="board-name" readonly>');
   modalContentImg.append(imgContainer.append(pinImg), editContainer.append(editName));
   const modalContentDescription = $('<div class="modal-content__description col-xs-6"></div>');
   const modalHeader = $('<div class="modal-header"></div>');
@@ -29,15 +29,31 @@ const createSaveModal = (update)=>{
   modalBody.append(lblBoardName, inpBoardName, subtitle, listNames);
   const modalFooter = $('<div class="modal-footer"></div>');
   const btnCancel = $('<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>');
-  const btnCreate = $('<button type="button" class="btn btn-default" data-dismiss="modal">Crear</button>');
+  const btnCreate = $('<button type="button" class="btn btn-default" disabled>Crear</button>');
   modalFooter.append(btnCancel, btnCreate);
   modalContentDescription.append(modalHeader, modalBody, modalFooter);
   modalContent.append(modalContentImg, modalContentDescription);
   modalContainer.append(modalDialog.append(modalContent));
 
-  $('#btn-save').on('click', ()=>{
-      pinImg.attr('src', state.pin);
-  })
+  inpBoardName.on('keyup', ()=>{
+    if(inpBoardName.val() != ''){
+      btnCreate.removeAttr('disabled');
+      btnCreate.removeClass('btn-default');
+      btnCreate.addClass('bg-primary');
+    }
+  });
+
+  editName.on({
+    focusin: ()=>{
+      editName.removeAttr('readonly');
+    },
+    focusout: ()=>{
+      editName.attr('readonly', 'readonly');
+    }
+
+  });
+
+
 
   return modalContainer;
 }

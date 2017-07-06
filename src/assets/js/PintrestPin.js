@@ -11,12 +11,10 @@ const PinDetails = (update) => {
   modalContent.append(modalHeader);
   modalContent.append(modalBody);
 
+  const buttonSave = $('<button type="button" class="btn bg-primary" data-toggle="modal" data-target="#saveModal" id="btn-save"><i class="icon-pin"></i>Guardar</button>');
   const buttonclose = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-  const h4modalTitle = $('<h4 class="modal-title" id="myModalLabel"></h4>');
-  const buttonSave = $('<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#saveModal" id="btn-save">Open Modal</button>');
 
   modalHeader.append(buttonclose);
-  modalHeader.append(h4modalTitle);
   modalHeader.append(buttonSave);
 
   const containermodal = $('<div class="container container-modal"></div>');
@@ -30,6 +28,16 @@ const PinDetails = (update) => {
   col1.append(pincolContainer);
   pincolContainer.append(img);
   modalBody.append(containermodal);
+
+  buttonSave.on('click', ()=>{
+    console.log('click save');
+    $.get("https://api.pinterest.com/v1/pins/523473156678884261/?access_token=ATLVkpU1AzU-WC0DWQStYpu4HiB_FM6Kk0cL9EhEItzOC6A2WgAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cboard%2Ccolor%2Ccounts%2Ccreated_at%2Ccreator%2Cimage%2Coriginal_link",(data)=>{
+      console.log(data);
+      state.pin = data.data.image.original.url;
+      console.log(state.pin);
+      pinImg.attr('src', state.pin);
+    });
+  })
 
   buttonclose.click((e)=>{
     e.preventDefault();

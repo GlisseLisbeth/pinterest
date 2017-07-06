@@ -5,16 +5,34 @@
 .bg-white{
   background-color: white;
 }
+.bg-primary{
+  background-color: $primary-color;
+}
+
+@mixin flex($direction: row, $justify: '', $align: '') {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+
+.form-control:focus {
+  border-color: $gray-light;
+  box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px white;
+}
+
+.form-control::placeholder {
+  color: black;
+}
 
 //header
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  @include flex(column, center, center);
   .header__nav{
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
+    @include flex('', space-between);
   }
     & .header__nav--btn{
       height: $height-nav-btn;
@@ -27,30 +45,39 @@
       padding-left: 3.5rem;
       font-size: 2rem;
     }
-    & .form-control::placeholder {
-      color: black;
-    }
-    & .form-control:focus {
-      border-color: white;
-      box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px white;
-    }
 }
 
+//pin modal
+#myModal{
+  & .modal-content{
+    @include flex(column);
+  }
+  .modal-header{
+    @include flex(row-reverse, flex-start);
+  }
+}
 
 //save modal
-.modal-content{
-  display: flex;
-  & .modal-content__img{
+#saveModal{
+  & .modal-content{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    & div{
-      max-height: 39rem;
+    & .modal-content__img{
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      @include flex(column, center);
+      & div{
+        max-height: 39rem;
+      }
     }
-  }
-  & .modal-content__description{
-    & a{
-      border: none;
+    & .modal-content__description{
+      & a{
+        border: none;
+        color: $gray-light;
+      }
+      & a:hover{
+        color: black;
+      }
     }
   }
 }
