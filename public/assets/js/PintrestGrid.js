@@ -1,18 +1,34 @@
 'use strict';
 
 const BoardItem = (pinterest, update) => {
-  console.log(pinterest);
-  const figure = $('<div class="pin"></div>');
+  const gridItem = $('<div class="grid__item"></div>');
+  const div = $('<div></div>');
+  const sliderItem = $('<div class="slider__item"></div>');
   const a = $('<a data-toggle="modal" data-target="#myModal"></a>');
+  const img = $('<img src="' + pinterest.image.original.url + '">');
+  const name = $("<p> " + pinterest.note + "</p>");
+  const user = $('<div class="meta"></div>');
+  const imgUser = $('<img class="meta__brand" src="" alt="">');
+  const nameUser = $('<span class="meta__title"></span>');
+  const divImgDin = $('<div class="divImgDin"></div>');
+  const btnSave = $('<button class="btn-save"><i class="glyphicon glyphicon-pushpin"></i>Guardar</button>');
+  const btnShare = $('<button class="btn-share"><i class="glyphicon glyphicon-share"></i></button>');
 
-  const img = $('<img class="pinimg center" src="' + pinterest.image.original.url + '">');
-  const p = $('<p>' + pinterest.note + '</p>');
-
-  figure.append(a);
-  figure.append(p);
+  if (pinterest.metadata.article != undefined) {
+    var linkTitle = $("<p> " + pinterest.metadata.article.name + "</p>");
+  }
+  gridItem.append(div);
+  div.append(sliderItem);
+  sliderItem.append(a);
   a.append(img);
-
-  let doublePin = figure.map(x => {
+  divImgDin.append(btnSave);
+  divImgDin.append(btnShare);
+  gridItem.append(divImgDin);
+  gridItem.append(user);
+  gridItem.append(name);
+  user.append(imgUser);
+  user.append(nameUser);
+  let doublePin = gridItem.map(x => {
     return x;
   });
   // a.on('click',function () {
@@ -24,25 +40,16 @@ const BoardItem = (pinterest, update) => {
   // });
 
 
-  return figure;
+  return gridItem;
 };
 
 const BoardGrid = update => {
 
-  const section = $('<section id ="sectionPin"></section>');
-  const container = $('<div class="container-fluid" style="background:red"></div>');
-  const rowgrid = $('<div class="row" style="background:yellow"></div>');
-  const board = $('<div id="wrapper" class="board col-md-10 col-md-offset-1" col-xs-2 style="background:black"></div>');
-  const columns = $('<div id="columns"></div>');
-  section.append(container);
-  container.append(rowgrid);
-  rowgrid.append(board);
-  board.append(columns);
+  const grid = $('<section class="grid"></div>');
   // reRender(rowgrid,filterpinterest(state.pinterests,""));
   const list = state.pins;
   list.forEach(pin => {
-    columns.append(BoardItem(pin));
+    grid.append(BoardItem(pin));
   });
-
-  return section;
+  return grid;
 };
