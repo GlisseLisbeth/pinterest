@@ -16,7 +16,7 @@ const search = (searchClass, searchId)=>{
 }
 
 const header = (update)=>{
-  const containerHeader = $('<header class="navbar navbar-default navbar-fixed-to header container-fluid bg-white">');
+  const containerHeader = $('<header class="navbar navbar-default navbar-fixed-top header container-fluid bg-white">');
   const navHeader = $('<nav class="header__nav col-xs-12">');
   const btnSearch = btnNav('Buscar', 'visible-xs', 'icon-search');
   const searchToShow = search('form-group col-xs-12 hidden hidden-sm hidden-md hidden-lg', 'search-inp');

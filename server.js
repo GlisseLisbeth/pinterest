@@ -9,5 +9,5 @@ app.get('/', (req, res) => {
 }).listen(port);
 
 app.use('/static', express.static(path.join(__dirname,'/node_modules')));
-app.use('/static', express.static(path.join(__dirname + '/public','/assets')));
+app.use('/assets', express.static(path.join(__dirname + '/public','/assets')));
 console.log('Express server started on port %s', port);
