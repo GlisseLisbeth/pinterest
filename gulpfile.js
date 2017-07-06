@@ -53,7 +53,7 @@ gulp.task("sass",function () {
         cascade: false
       }))
       .pipe(cleanCSS())
-      .pipe(gulp.dest(config.dist + paths.assets +"css"));
+      .pipe(gulp.dest(config.dist + paths.assets +"css"))
       .pipe(notify('gulp sass terminada'));
 });
 
