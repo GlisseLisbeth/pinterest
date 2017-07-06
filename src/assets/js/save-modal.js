@@ -6,13 +6,12 @@ const suggestedName = (name)=>{
 }
 
 const createSaveModal = (update)=>{
-  console.log(state.pin);
   const modalContainer = $('<div class="modal fade" id="saveModal" role="dialog"></div>');
   const modalDialog = $('<div class="modal-dialog"></div>');
   const modalContent = $('<div class="modal-content"></div>');
   const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
   const imgContainer = $('<div class="media"></div>');
-  const pinImg = $('<img alt="" src='+state.pin+'class="img-responsive"> ');
+  const pinImg = $('<img alt="" class="img-responsive" id="saveImg">');
   const editContainer = $('<div></div>')
   const editName = $('<input type="text" class="form-control" id="board-name" readonly>');
   modalContentImg.append(imgContainer.append(pinImg), editContainer.append(editName));
@@ -53,6 +52,6 @@ const createSaveModal = (update)=>{
     }
 
   });
-  
+
   return modalContainer;
 }

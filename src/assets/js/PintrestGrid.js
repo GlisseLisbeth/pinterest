@@ -1,6 +1,6 @@
 'use strict';
 
-const BoardItem = (pinterest, update) => {
+const BoardItem = (pinterest, ide, update) => {
   const gridItem = $('<div class="grid__item"></div>');
   const div = $('<div></div>');
   const sliderItem = $('<div class="slider__item"></div>');
@@ -22,19 +22,18 @@ const BoardItem = (pinterest, update) => {
   a.append(img);
   gridItem.append(btnSave);
   gridItem.append(btnShare);
-  // gridItem.append(divImgDin);
   gridItem.append(user);
   gridItem.append(name);
   user.append(imgUser);
   user.append(nameUser);
   let doublePin = gridItem.map((x)=>{ return x});
-  // a.on('click',function () {
-  //
-  //   $.get(,(data) => {
-  //
-  //
-  //    })
-  // });
+
+  a.on('click',function () {
+    $.get("https://api.pinterest.com/v1/pins/"+ide+"/?access_token=ATLVkpU1AzU-WC0DWQStYpu4HiB_FM6Kk0cL9EhEItzOC6A2WgAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cboard%2Ccolor%2Ccounts%2Ccreated_at%2Ccreator%2Cimage%2Coriginal_link",(data)=>{
+      state.pin = data.data.image.original.url;
+      $('#pinImage').attr('src',state.pin);
+    });
+  });
 
 return gridItem;
 }
@@ -45,8 +44,8 @@ const BoardGrid = (update) => {
   // reRender(rowgrid,filterpinterest(state.pinterests,""));
   const list = state.board;
   list.forEach((pin) => {
-    console.log(pin);
-    grid.append(BoardItem(pin));
+    let ide = pin.id;
+   grid.append(BoardItem(pin,ide,update));
   });
   return grid;
 }

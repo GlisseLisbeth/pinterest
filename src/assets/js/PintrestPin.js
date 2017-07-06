@@ -45,5 +45,10 @@ const PinDetails = (update) => {
     $('#pinImage').attr('src',"");
   });
 
+  buttonSave.click((e)=>{
+    e.preventDefault();
+    $('#saveImg').attr('src',state.pin);
+  });
+
   return modalfade;
 }
