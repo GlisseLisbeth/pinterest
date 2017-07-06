@@ -79,12 +79,6 @@ gulp.task("js",function () {
       return merge(js, jquery);
 });
 
-// gulp.task('compress-js', (cb)=>{
-//   pump([gulp.src(sources.rootJs),
-//         uglify(),
-//         gulp.dest(config.dist + paths.assets + "js"), cb]);
-// });
-
 gulp.task("img", function(){
   gulp.src(sources.rootImg).pipe(gulp.dest(config.dist + paths.assets + 'img'));
 });
