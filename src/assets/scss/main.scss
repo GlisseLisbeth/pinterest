@@ -40,6 +40,14 @@
 //save modal
 .modal-content{
   display: flex;
+  & .modal-content__img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & div{
+      max-height: 39rem;
+    }
+  }
   & .modal-content__description{
     & a{
       border: none;

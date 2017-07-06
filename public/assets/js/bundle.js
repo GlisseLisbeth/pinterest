@@ -46,8 +46,11 @@ const createSaveModal = (update)=>{
   const modalDialog = $('<div class="modal-dialog"></div>');
   const modalContent = $('<div class="modal-content"></div>');
   const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
+  const imgContainer = $('<div class="media"></div>');
   const pinImg = $('<img alt="" class="img-responsive">');
-  modalContentImg.append(pinImg);
+  const editContainer = $('<div></div>')
+  const editName = $('<input type="text" class="form-control" id="board-name" placeholder="Dale un nombre a tu primer tablero">');
+  modalContentImg.append(imgContainer.append(pinImg), editContainer.append(editName));
   const modalContentDescription = $('<div class="modal-content__description col-xs-6"></div>');
   const modalHeader = $('<div class="modal-header"></div>');
   const btnClose = $('<button type="button" class="close" data-dismiss="modal">&times;</button>');
