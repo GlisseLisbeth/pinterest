@@ -28,8 +28,7 @@ const BoardItem = (pinterest,ide,update) => {
       $('#pinImage').attr('src',state.pin);
     });
   });
-
-return colcontainer;
+  return colcontainer;
 }
 
 const BoardGrid = (update) => {

@@ -47,7 +47,7 @@ const createSaveModal = (update)=>{
   const modalContent = $('<div class="modal-content"></div>');
   const modalContentImg = $('<div class="modal-content__img col-xs-6"></div>');
   const imgContainer = $('<div class="media"></div>');
-  const pinImg = $('<img alt="" class="img-responsive">');
+  const pinImg = $('<img id= "saveImg" alt="" class="img-responsive">');
   const editContainer = $('<div></div>')
   const editName = $('<input type="text" class="form-control" id="board-name" placeholder="Dale un nombre a tu primer tablero">');
   modalContentImg.append(imgContainer.append(pinImg), editContainer.append(editName));
@@ -72,12 +72,7 @@ const createSaveModal = (update)=>{
   modalContainer.append(modalDialog.append(modalContent));
 
   $('#btn-save').on('click', ()=>{
-    $.get("https://api.pinterest.com/v1/pins/523473156678884261/?access_token=ATLVkpU1AzU-WC0DWQStYpu4HiB_FM6Kk0cL9EhEItzOC6A2WgAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cboard%2Ccolor%2Ccounts%2Ccreated_at%2Ccreator%2Cimage%2Coriginal_link",(data)=>{
-      console.log(data);
-      state.pin = data.data.image.original.url;
-      console.log(state.pin);
       pinImg.attr('src', state.pin);
-    });
   })
 
   return modalContainer;
@@ -107,7 +102,7 @@ const getJSON = (url, cb) => { //url es la direccion de archivo json
 
 // },{}]},{},[1])
 // (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-
+//
 // },{}]},{},[1])
 // (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
@@ -118,7 +113,6 @@ const render = (root) => {
   wrapper.append(header(_=>{render(root)}));
   wrapper.append(BoardGrid(_=>{render(root)}));
   wrapper.append(createSaveModal(_=>{render(root)}));
-
   root.append(wrapper);
 }
 const state = {
@@ -168,8 +162,7 @@ const BoardItem = (pinterest,ide,update) => {
       $('#pinImage').attr('src',state.pin);
     });
   });
-
-return colcontainer;
+  return colcontainer;
 }
 
 const BoardGrid = (update) => {
@@ -210,9 +203,11 @@ const PinDetails = (update) => {
 
   const buttonclose = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
   const h4modalTitle = $('<h4 class="modal-title" id="myModalLabel"></h4>');
+  const buttonSave = $('<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#saveModal" id="btn-save">Open Modal</button>');
 
   modalHeader.append(buttonclose);
   modalHeader.append(h4modalTitle);
+  modalHeader.append(buttonSave);
 
   const containermodal = $('<div class="container container-modal"></div>');
   const row1 = $('<div class="row"></div>');
@@ -230,6 +225,11 @@ const PinDetails = (update) => {
     e.preventDefault();
     state.pin= null;
     $('#pinImage').attr('src',"");
+  });
+
+  buttonSave.click((e)=>{
+    e.preventDefault();
+    $('#saveImg').attr('src',state.pin);
   });
 
   return modalfade;
