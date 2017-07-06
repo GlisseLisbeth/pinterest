@@ -6,7 +6,7 @@ var browserSync = require('browser-sync').create();
 var rename = require("gulp-rename");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
-var babel = require('gulp-babel');
+// var babel = require('gulp-babel');
 var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
 var jquery = require('gulp-jquery');
@@ -63,11 +63,11 @@ gulp.task("js",function () {
                         .pipe(gulp.dest(config.dist + paths.assets + 'vendor'));
       return merge(js, jquery);
 });
-gulp.task('js', function () {
-        gulp.src(sources.rootJs)
-        .pipe(babel())
-        .pipe(gulp.dest(config.dist + paths.assets +"js"));
-});
+// gulp.task('js', function () {
+//         gulp.src(sources.rootJs)
+//         // .pipe(babel())
+//         .pipe(gulp.dest(config.dist + paths.assets +"js"));
+// });
 
 gulp.task("img", function(){
   gulp.src(sources.rootImg).pipe(gulp.dest(config.dist + paths.assets + 'img'));
