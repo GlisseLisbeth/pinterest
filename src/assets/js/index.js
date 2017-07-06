@@ -5,8 +5,8 @@ const render = (root) => {
 
   wrapper.append(header(_=>{render(root)}));
   wrapper.append(BoardGrid(_=>{render(root)}));
+  wrapper.append(PinDetails(_=>{render(root)}));
   wrapper.append(createSaveModal(_=>{render(root)}));
-
   root.append(wrapper);
 }
 const state = {

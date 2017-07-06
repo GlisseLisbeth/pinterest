@@ -64,8 +64,8 @@ const BoardItem = (pinterest, update) => {
   const user = $('<div class="meta"></div>');
   const imgUser = $('<img class="meta__brand" src="" alt="">');
   const nameUser = $('<span class="meta__title"></span>');
-  const btnSave = $('<button class="btn-save"><i class="glyphicon glyphicon-pushpin"></i>Guardar</button>');
-  const btnShare = $('<button class="btn-share"><i class="glyphicon glyphicon-share"></i></button>');
+  const btnSave = $('<button class="btn-save"><i class="icon-pin"></i>Guardar</button>');
+  const btnShare = $('<button class="btn-share"><i class="icon-share"></i></button>');
 
   if (pinterest.metadata.article != undefined) {
        var linkTitle = $("<p> " + pinterest.metadata.article.name + "</p>");
@@ -221,8 +221,8 @@ const render = (root) => {
 
   wrapper.append(header(_=>{render(root)}));
   wrapper.append(BoardGrid(_=>{render(root)}));
+  wrapper.append(PinDetails(_=>{render(root)}));
   wrapper.append(createSaveModal(_=>{render(root)}));
-
   root.append(wrapper);
 }
 const state = {
