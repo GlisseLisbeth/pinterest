@@ -5,11 +5,12 @@ const render = (root) => {
   const list = state.pins;
 
   wrapper.append(header(_=>{render(root)}));
+  wrapper.append(createSaveModal(_=>{render(root)}));
 
   root.append(wrapper);
 }
 const state = {
-    pin: null,
+    pins: null,
     id:null
 }
 
